@@ -6,10 +6,10 @@ const AppNav = () => {
     <nav className={nav}>
       <ul>
         <li>
-          <NavLink to="/app">App</NavLink>
+          <NavLink to="cities">Cities</NavLink>
         </li>
         <li>
-          <NavLink to="/pricing">Pricing</NavLink>
+          <NavLink to="countries">Countries</NavLink>
         </li>
       </ul>
     </nav>
