@@ -4,6 +4,8 @@ import styles from "./City.module.css";
 import { useCities } from "../contexts/CitiesContext";
 // import { flagEmojiToPNGUrl } from "../utils/helpers";
 import Flag from "./Flag";
+import Backbutton from "./Backbutton";
+import Spinner from "./Spinner";
 
 const formatDate = (date) =>
   new Intl.DateTimeFormat("en", {
@@ -15,8 +17,9 @@ const formatDate = (date) =>
 
 function City() {
   const { id } = useParams();
-  const { getCity, currentCity } = useCities();
-  console.log(getCity, "getCity");
+
+  const { getCity, currentCity, isLoading } = useCities();
+  const { cityName, date, notes, emoji } = currentCity;
 
   useEffect(
     function () {
@@ -25,7 +28,7 @@ function City() {
     [id]
   );
 
-  const { cityName, date, notes, emoji } = currentCity;
+  if (isLoading) return <Spinner />;
 
   console.log(currentCity, "currentCity");
 
@@ -63,7 +66,9 @@ function City() {
         </a>
       </div>
 
-      <div>{/* <ButtonBack /> */}</div>
+      <div>
+        <Backbutton />
+      </div>
     </div>
   );
 }
