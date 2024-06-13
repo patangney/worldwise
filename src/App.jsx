@@ -1,12 +1,19 @@
 import "./App.css";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Pricing from "./pages/Pricing";
+import Homepage from "./pages/Homepage";
+import Product from "./pages/Product";
 
 function App() {
   return (
-    <>
-      <div>
-        <h1>hello world</h1>
-      </div>
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Homepage />} />
+        <Route path="/pricing" element={<Pricing />} />
+        <Route path="/product" element={<Product />} />
+        <Route path="*" element={<div>Page Not Found</div>} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
