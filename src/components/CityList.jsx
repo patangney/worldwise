@@ -1,10 +1,12 @@
-import PropTypes from "prop-types";
 import styles from "./CityList.module.css";
 import Spinner from "./Spinner";
 import CityItem from "./CityItem";
 import Message from "./Message";
 
-const CityList = ({ cities, isLoading }) => {
+import { useCities } from "../contexts/CitiesContext";
+
+const CityList = () => {
+  const { cities, isLoading } = useCities();
   if (isLoading) {
     return <Spinner />;
   }
@@ -22,9 +24,9 @@ const CityList = ({ cities, isLoading }) => {
   );
 };
 
-CityList.propTypes = {
-  cities: PropTypes.array.isRequired,
-  isLoading: PropTypes.bool.isRequired,
-};
+// CityList.propTypes = {
+//   cities: PropTypes.array.isRequired,
+//   isLoading: PropTypes.bool.isRequired,
+// };
 
 export default CityList;

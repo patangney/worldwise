@@ -26,8 +26,7 @@
 
 .city h3 {
   font-size: 1.9rem;
-  display: flex;
-  align-items: center;
+  align-items: center !important;
   gap: 1rem;
 }
 
